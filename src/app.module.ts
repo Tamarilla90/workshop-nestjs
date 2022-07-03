@@ -1,9 +1,12 @@
 import {Module} from '@nestjs/common';
 import {UserModule} from './user/user.module';
 import {TypeOrmModule} from "@nestjs/typeorm";
+import {CommonsModule} from './commons/commons.module';
+import {APP_PIPE} from "@nestjs/core";
+import {ValidationPipe} from "./commons/pipe/validation.pipe";
 
 @Module({
-    imports: [UserModule,
+    imports: [
         TypeOrmModule.forRoot({
             type: 'mongodb',
             host: 'localhost',
@@ -14,6 +17,14 @@ import {TypeOrmModule} from "@nestjs/typeorm";
             autoLoadEntities: true,
             synchronize: true,
         }),
+        CommonsModule,
+        UserModule,
+    ],
+    providers: [
+        {
+            provide: APP_PIPE,
+            useClass: ValidationPipe,
+        },
     ],
 })
 export class AppModule {
