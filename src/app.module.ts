@@ -2,11 +2,12 @@ import {MiddlewareConsumer, Module} from '@nestjs/common';
 import {UserModule} from './user/user.module';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {CommonsModule} from './commons/commons.module';
-import {APP_GUARD, APP_INTERCEPTOR, APP_PIPE} from "@nestjs/core";
+import {APP_FILTER, APP_GUARD, APP_INTERCEPTOR, APP_PIPE} from "@nestjs/core";
 import {ValidationPipe} from "./commons/pipe/validation.pipe";
 import {AutheticationMiddleware} from "./commons/middlewares/authetication.middleware";
 import {RoleGuard} from "./commons/guard/role.guard";
 import {TransformResponseInterceptor} from "./commons/interceptor/transform-response.interceptor";
+import {HttpExceptionFilter} from "./commons/filter/http-exception.filter";
 
 @Module({
     imports: [
@@ -35,6 +36,10 @@ import {TransformResponseInterceptor} from "./commons/interceptor/transform-resp
         {
             provide: APP_INTERCEPTOR,
             useClass: TransformResponseInterceptor
+        },
+        {
+            provide: APP_FILTER,
+            useClass: HttpExceptionFilter
         }
     ],
 })

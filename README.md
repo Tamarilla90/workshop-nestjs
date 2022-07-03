@@ -57,3 +57,12 @@ Step 4
 4. nest g interceptor transformResponse
 5. Añadimos la trasformacion de la respuesta
 6. Añadimos el interceptor en la aplicacion
+
+Step 5
+
+1. cd src/commons
+2. mkdir filter
+3. cd filter
+4. nest g filter httpExceptionFilter
+5. Añadimos el codigo de implementacion
+6. Añadimos el filter a la aplicacion
