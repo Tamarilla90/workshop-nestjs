@@ -5,7 +5,10 @@ import {UpdateUserDto} from './dto/update-user.dto';
 import {ObjectID} from "typeorm";
 import {Roles} from "../commons/guard/roles.decorator";
 import {Role} from "../commons/guard/role.enum";
+import {ApiBearerAuth, ApiTags} from "@nestjs/swagger";
 
+@ApiBearerAuth()
+@ApiTags('user')
 @Controller('user')
 @Roles(Role.Admin)
 export class UserController {
