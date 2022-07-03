@@ -24,15 +24,15 @@ export class UserService {
     }
 
     findOne(id: ObjectID) {
-        return this.usersRepository.findOneBy({id});
+        return this.usersRepository.findOneById(id);
     }
 
     update(id: ObjectID, updateUserDto: UpdateUserDto) {
         const updateUser = new User(updateUserDto);
-        return this.usersRepository.update({id}, updateUser);
+        return this.usersRepository.update(id, updateUser);
     }
 
     remove(id: ObjectID) {
-        return this.usersRepository.deleteOne({id});
+        return this.usersRepository.delete(id);
     }
 }
