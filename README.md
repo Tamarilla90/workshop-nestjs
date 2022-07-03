@@ -49,4 +49,11 @@ Step 3 - parte 2
 5. Añadimos el codigo de validation de roles.
 6. Lo añadimos como guard
 
+Step 4
 
+1. cd src/commons
+2. mkdir interceptor
+3. cd interceptor
+4. nest g interceptor transformResponse
+5. Añadimos la trasformacion de la respuesta
+6. Añadimos el interceptor en la aplicacion
