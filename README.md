@@ -29,3 +29,15 @@ Step 2
 9. Exportamols en nuestro commons la pipe
 10. Añadimos la pipe de manera global para que todos nuestros recursos validen la entrada
 11. Modificamos los DTOs con las validaciones pertinentes
+
+Step 3 - parte 1
+
+1. cd src/commons
+2. mkdir middleware
+3. cd middleware
+4. nest g middleware authetication
+5. npm i jwt-decode
+6. Añadimos el codigo de validation de token y lo decodificamos
+7. Lo añadimos como middleware
+
+

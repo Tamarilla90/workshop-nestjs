@@ -1,9 +1,10 @@
-import {Module} from '@nestjs/common';
+import {MiddlewareConsumer, Module} from '@nestjs/common';
 import {UserModule} from './user/user.module';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {CommonsModule} from './commons/commons.module';
 import {APP_PIPE} from "@nestjs/core";
 import {ValidationPipe} from "./commons/pipe/validation.pipe";
+import {AutheticationMiddleware} from "./commons/middlewares/authetication.middleware";
 
 @Module({
     imports: [
@@ -28,4 +29,9 @@ import {ValidationPipe} from "./commons/pipe/validation.pipe";
     ],
 })
 export class AppModule {
+    configure(consumer: MiddlewareConsumer) {
+        consumer
+            .apply(AutheticationMiddleware)
+            .forRoutes('user');
+    }
 }
