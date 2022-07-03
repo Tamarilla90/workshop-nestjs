@@ -30,7 +30,7 @@ Step 2
 10. Añadimos la pipe de manera global para que todos nuestros recursos validen la entrada
 11. Modificamos los DTOs con las validaciones pertinentes
 
-Step 3
+Step 3 - parte 1
 
 1. cd src/commons
 2. mkdir middleware
@@ -39,5 +39,14 @@ Step 3
 5. npm i jwt-decode
 6. Añadimos el codigo de validation de token y lo decodificamos
 7. Lo añadimos como middleware
+
+Step 3 - parte 2
+
+1. cd src/commons
+2. mkdir guards
+3. cd guards
+4. nest g guard roles
+5. Añadimos el codigo de validation de roles.
+6. Lo añadimos como guard
 
 

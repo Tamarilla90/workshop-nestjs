@@ -3,8 +3,11 @@ import {UserService} from './user.service';
 import {CreateUserDto} from './dto/create-user.dto';
 import {UpdateUserDto} from './dto/update-user.dto';
 import {ObjectID} from "typeorm";
+import {Roles} from "../commons/guard/roles.decorator";
+import {Role} from "../commons/guard/role.enum";
 
 @Controller('user')
+@Roles(Role.Admin)
 export class UserController {
     constructor(private readonly userService: UserService) {
     }
